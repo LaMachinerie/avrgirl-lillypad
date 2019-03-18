@@ -21,30 +21,7 @@ A NodeJS library for flashing compiled sketch files to Arduino microcontroller b
 avrgirl-arduino is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino. avrgirl-arduino supports a selection of Arduino boards.
 
 The current supported list:
-
-+ **Arduino Uno**
-+ **Arduino Mega**
-+ **Arduino ADK**
-+ **Arduino Leonardo**
-+ **Arduino Micro**
-+ **Arduino Nano**
-+ **Arduino Duemilanove (168)**
-+ **Arduino Pro Mini**
 + **Arduino Lilypad USB**
-+ **Arduino Yun**
-+ **Arduino Esplora**
-+ **Femtoduino IMUduino**
-+ **RedBearLab Blend Micro**
-+ **Tinyduino**
-+ **Sparkfun Pro Micro**
-+ **Qtechknow Qduino**
-+ **Pinoccio Scout**
-+ **Adafruit Feather 32u4 Basic Proto**
-+ **Arduboy**
-+ **Adafruit Circuit Playground**
-+ **BQ Zum**
-+ **BQ ZUM Core 2**
-+ **BQ ZUM Core 2**
 
 
 This library is designed to ultimately be rolled into the avrgirl project (in development), however it still works perfectly well as a stand-alone package to be used outside of avrgirl if you wish.
