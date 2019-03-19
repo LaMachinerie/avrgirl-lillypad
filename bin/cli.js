@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var Avrgirl = require('../avrgirl-arduino');
+var Avrgirl = require('../avrgirl-lillypad');
 var boards = require('../boards');
 var parseArgs = require('minimist');
 var path = require('path');
@@ -10,10 +10,10 @@ var args = (process.argv.slice(2));
 var argv = parseArgs(args, {});
 var userAction = argv._[0];
 var help = 'Usage:\n' +
-  '  avrgirl-arduino flash -f <file> -a <arduino name> [-p <port>] [-v]\n' +
-  '  avrgirl-arduino boards\n' +
-  '  avrgirl-arduino list\n' +
-  '  avrgirl-arduino test-pilot';
+  '  avrgirl-lillypad flash -f <file> -a <arduino name> [-p <port>] [-v]\n' +
+  '  avrgirl-lillypad boards\n' +
+  '  avrgirl-lillypad list\n' +
+  '  avrgirl-lillypad test-pilot';
 
 function showHelp() {
   console.log(help);

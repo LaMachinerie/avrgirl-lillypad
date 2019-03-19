@@ -1,32 +1,30 @@
 {
-  "name": "avrgirl-arduino",
-  "version": "3.0.1",
-  "description": "A NodeJS library for flashing compiled sketch files to Arduino microcontroller boards.",
+  "name": "avrgirl-lillypad",
+  "version": "1.0.1",
+  "description": "A NodeJS library for flashing compiled sketch files to Arduino Lillypad boards.",
   "bin": "./bin/cli.js",
-  "main": "avrgirl-arduino.js",
+  "main": "avrgirl-lillypad.js",
   "scripts": {
     "test": "gulp test",
     "cover": "istanbul cover ./tests/*.spec.js && istanbul-coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noopkat/avrgirl-arduino.git"
+    "url": "https://github.com/LaMachinerie/avrgirl-lillypad.git"
   },
   "keywords": [
     "arduino",
     "avr",
     "avr109",
-    "stk500",
     "avrdude",
-    "avrgirl",
-    "avrg"
+    "avrgirl"
   ],
   "author": "Suz Hinton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noopkat/avrgirl-arduino/issues"
+    "url": "https://github.com/LaMachinerie/avrgirl-lillypad/issues"
   },
-  "homepage": "https://github.com/noopkat/avrgirl-arduino",
+  "homepage": "https://github.com/LaMachinerie/avrgirl-lillypad",
   "dependencies": {
     "async": "^2.1.2",
     "awty": "^0.1.0",

@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/noopkat/avrgirl-arduino.svg?branch=master)](https://travis-ci.org/noopkat/avrgirl-arduino) [![Coverage Status](https://coveralls.io/repos/noopkat/avrgirl-arduino/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/avrgirl-arduino?branch=master)
+[![Build Status](https://travis-ci.org/noopkat/avrgirl-lillypad.svg?branch=master)](https://travis-ci.org/noopkat/avrgirl-lillypad) [![Coverage Status](https://coveralls.io/repos/noopkat/avrgirl-lillypad/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/avrgirl-lillypad?branch=master)
 
-# avrgirl-arduino
+# avrgirl-lillypad
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/noopkat/avrgirl-arduino.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/noopkat/avrgirl-lillypad.svg)](https://greenkeeper.io/)
 
 A NodeJS library for flashing compiled sketch files to Arduino microcontroller boards.
 
@@ -10,15 +10,15 @@ A NodeJS library for flashing compiled sketch files to Arduino microcontroller b
 
 **Own a supported Arduino and want to be a test pilot for this project with two minutes of your time?**
 
-1. Run `npm install -g avrgirl-arduino@latest` in your terminal.
-2. Type `avrgirl-arduino test-pilot`, hit enter / return key and follow the prompts.
+1. Run `npm install -g avrgirl-lillypad@latest` in your terminal.
+2. Type `avrgirl-lillypad test-pilot`, hit enter / return key and follow the prompts.
 3. Thank you, friend :heart:
 
 ![logo](http://i.imgur.com/AAvwp0F.png)
 
 ## What is this?
 
-avrgirl-arduino is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino. avrgirl-arduino supports a selection of Arduino boards.
+avrgirl-lillypad is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino. avrgirl-lillypad supports a selection of Arduino boards.
 
 The current supported list:
 + **Arduino Lilypad USB**
@@ -29,26 +29,26 @@ This library is designed to ultimately be rolled into the avrgirl project (in de
 ## How to install
 
 1. Install NodeJS from [nodejs.org](http://nodejs.org)
-2. Run `npm install avrgirl-arduino` in your shell of choice
+2. Run `npm install avrgirl-lillypad` in your shell of choice
 
 ## For Windows users
 
-Before using your Arduino with avrgirl-arduino on Windows XP, 7, and 8, you may need to install the Arduino drivers included with the Arduino IDE.  You can follow steps 1-4 on [this guide](https://www.arduino.cc/en/Guide/Windows) to install the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and activate the [relevant drivers](https://www.arduino.cc/en/Guide/Windows#toc4).  After step 4 of the guide (drivers) you will be ready to use your Arduino with avrgirl!
+Before using your Arduino with avrgirl-lillypad on Windows XP, 7, and 8, you may need to install the Arduino drivers included with the Arduino IDE.  You can follow steps 1-4 on [this guide](https://www.arduino.cc/en/Guide/Windows) to install the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and activate the [relevant drivers](https://www.arduino.cc/en/Guide/Windows#toc4).  After step 4 of the guide (drivers) you will be ready to use your Arduino with avrgirl!
 
 ## How do I use it?
 
 Your first task is to source a pre-compiled .hex file of the sketch you're interested in uploading to your Arduino. It needs to be compiled for your specific Arduino. You'll find some example hex files for each board within the `junk/hex` folder of this repo, however if you'd like to use your own, [see this guide](#sourcing-a-compiled-arduino-hex-file) if you're unsure of how to go about this.
 
-Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and avrgirl-arduino will take care of the rest. Hooray!
+Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and avrgirl-lillypad will take care of the rest. Hooray!
 
 Don't forget to plug your supported Arduino of choice into an available USB port on your computer!
 
-Wanna use this in the CLI? See [this section](#can-i-use-avrgirl-arduino-as-a-cli-tool).
+Wanna use this in the CLI? See [this section](#can-i-use-avrgirl-lillypad-as-a-cli-tool).
 
 The following example code should get you up and running with an Arduino Uno:
 
 ```javascript
-var Avrgirl = require('avrgirl-arduino');
+var Avrgirl = require('avrgirl-lillypad');
 
 var avrgirl = new Avrgirl({
   board: 'uno'
@@ -92,7 +92,7 @@ When creating `new Avrgirl()`, only the `board` property is required. The board 
 |BQ ZUM Core 2|`zumcore2`|
 |BQ ZUM Junior|`zumjunior`|
 
-You can optionally specify a port to connect to the Arduino, but if you omit this property avrgirl-arduino will do a pretty good job of finding it for you. **The exception to this is if you're using the Arduino Pro Mini - please specify your port in this case as avrgirl-arduino cannot auto detect it for you.**
+You can optionally specify a port to connect to the Arduino, but if you omit this property avrgirl-lillypad will do a pretty good job of finding it for you. **The exception to this is if you're using the Arduino Pro Mini - please specify your port in this case as avrgirl-lillypad cannot auto detect it for you.**
 
 Specifying the port would look something like this:
 
@@ -124,7 +124,7 @@ Avrgirl.list(function(err, ports) {
 Alternatively, you can use the CLI to list active ports:
 
 ```
-$ avrgirl-arduino list
+$ avrgirl-lillypad list
 [ { comName: '/dev/cu.usbmodem1421',
   	 manufacturer: 'Arduino (www.arduino.cc)',
     serialNumber: '55432333038351F03170',
@@ -156,7 +156,7 @@ flash complete.
 
 **Prefer your own custom debug behaviour?** No Problem!
 
-You can pass in your own debug function instead of a boolean, and avrgirl-arduino will run that instead.
+You can pass in your own debug function instead of a boolean, and avrgirl-lillypad will run that instead.
 
 Example:
 
@@ -206,15 +206,15 @@ var avrgirl = new Avrgirl({
 });
 ```
 
-## Can I use avrgirl-arduino as a CLI tool?
+## Can I use avrgirl-lillypad as a CLI tool?
 
 ### You sure can!
 
-Run `npm install -g avrgirl-arduino` in a shell session to install globally for easy CLI use.
+Run `npm install -g avrgirl-lillypad` in a shell session to install globally for easy CLI use.
 
 The same example above would look like the following as a CLI call in your shell:
 
-`avrgirl-arduino flash -f Blink.cpp.hex -a uno`
+`avrgirl-lillypad flash -f Blink.cpp.hex -a uno`
 
 Required flags:
 
@@ -228,11 +228,11 @@ Optional flags:
 
 You can also list the supported boards:
 
-`avrgirl-arduino boards`
+`avrgirl-lillypad boards`
 
 As well as listing all available USB devices on your computer:
 
-`avrgirl-arduino list`
+`avrgirl-lillypad list`
 
 The output will be presented in JSON format, very similar to the output of the `Serialport.list()` method (if you've used [node-serialport](https://github.com/voodootikigod/node-serialport) before).
 
