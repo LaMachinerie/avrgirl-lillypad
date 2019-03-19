@@ -12,7 +12,7 @@ var AvrgirlArduino = function(opts) {
 
   this.options = {
     debug: opts.debug || false,
-    board: opts.board || 'uno',
+    board: opts.board || 'lillypad-usb',
     port: opts.port || '',
     manualReset: opts.manualReset || false
   };
