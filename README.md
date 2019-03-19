@@ -153,23 +153,3 @@ The most common way to compile a sketch for your Arduino of choice is to downloa
 3. Export your hex file by navigating to Sketch -> Export compiled binary
 ![screenshot of the Sketch menu in Arduino IDE with Export compiled binary menu item highlighted in blue](http://f.cl.ly/items/0r1A082H3U3G0U2z1Z40/export_bin.png)
 4. You can find the exported hex file in the same directory your sketch file is located in.
-
-## Acknowledgements
-
-Credit to [Jacob Rosenthal](https://github.com/jacobrosenthal), [Ryan Day](https://github.com/soldair), and [Elijah Insua](https://github.com/tmpvar) for a lot of the heavy lifting going on underneath in this library.
-
-## Contributors
-
-+ [Arek Sredzki](https://github.com/ArekSredzki)
-+ [Pawel Szymczykowski](https://github.com/makenai)
-+ [Andrew 'AJ' Fisher](https://github.com/ajfisher)
-+ [Derek Wheelden](https://github.com/frxnz)
-+ [Byron Hulcher](https://github.com/byronhulcher)
-+ [Luis Montes](https://github.com/monteslu)
-+ [Ryan Braganza](https://github.com/ryanbraganza)
-+ [Alvaro Sanchez](https://github.com/alvarosBQ)
-+ [Francis Gulotta](https://github.com/reconbot)
-+ [Tom Calvo](https://github.com/tocalvo)
-+ [Kimio Kosaka](https://github.com/kimio-kosaka)
-+ [Sandeep Mistry](https://github.com/sandeepmistry)
-+ [Nick Hehr](https://github.com/hipsterbrown)
