@@ -1,5 +1,5 @@
 var testpilot = require('avrga-tester');
-var Avrgirl = require('../avrgirl-lillypad');
+var Avrgirl = require('../lite-avrgirl-lillypad');
 var fs = require('fs');
 var path = require('path');
 

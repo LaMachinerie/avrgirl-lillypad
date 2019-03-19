@@ -1,58 +1,34 @@
-[![Build Status](https://travis-ci.org/noopkat/avrgirl-lillypad.svg?branch=master)](https://travis-ci.org/noopkat/avrgirl-lillypad) [![Coverage Status](https://coveralls.io/repos/noopkat/avrgirl-lillypad/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/avrgirl-lillypad?branch=master)
+[![Build Status](https://travis-ci.org/noopkat/lite-avrgirl-lillypad.svg?branch=master)](https://travis-ci.org/noopkat/lite-avrgirl-lillypad) [![Coverage Status](https://coveralls.io/repos/noopkat/lite-avrgirl-lillypad/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/lite-avrgirl-lillypad?branch=master)
 
-# avrgirl-lillypad
+# lite-avrgirl-lillypad
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/noopkat/avrgirl-lillypad.svg)](https://greenkeeper.io/)
-
-A NodeJS library for flashing compiled sketch files to Arduino microcontroller boards.
-
-**Want to [contribute](CONTRIBUTING.md)?**
-
-**Own a supported Arduino and want to be a test pilot for this project with two minutes of your time?**
-
-1. Run `npm install -g avrgirl-lillypad@latest` in your terminal.
-2. Type `avrgirl-lillypad test-pilot`, hit enter / return key and follow the prompts.
-3. Thank you, friend :heart:
-
-![logo](http://i.imgur.com/AAvwp0F.png)
+A lighter version of avrgirl-arduino for flashing compiled sketch files to lillypad boards.
 
 ## What is this?
 
-avrgirl-lillypad is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino. avrgirl-lillypad supports a selection of Arduino boards.
-
-The current supported list:
-+ **Arduino Lilypad USB**
-
-
-This library is designed to ultimately be rolled into the avrgirl project (in development), however it still works perfectly well as a stand-alone package to be used outside of avrgirl if you wish.
+lite-avrgirl-lillypad is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino lillypad.
 
 ## How to install
 
 1. Install NodeJS from [nodejs.org](http://nodejs.org)
-2. Run `npm install avrgirl-lillypad` in your shell of choice
+2. Run `npm install lite-avrgirl-lillypad` in your shell of choice
 
-## For Windows users
+## For Windows 7 users
 
-Before using your Arduino with avrgirl-lillypad on Windows XP, 7, and 8, you may need to install the Arduino drivers included with the Arduino IDE.  You can follow steps 1-4 on [this guide](https://www.arduino.cc/en/Guide/Windows) to install the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and activate the [relevant drivers](https://www.arduino.cc/en/Guide/Windows#toc4).  After step 4 of the guide (drivers) you will be ready to use your Arduino with avrgirl!
+We are working on driver compatibility issues on W7. Be patient !
 
 ## How do I use it?
 
 Your first task is to source a pre-compiled .hex file of the sketch you're interested in uploading to your Arduino. It needs to be compiled for your specific Arduino. You'll find some example hex files for each board within the `junk/hex` folder of this repo, however if you'd like to use your own, [see this guide](#sourcing-a-compiled-arduino-hex-file) if you're unsure of how to go about this.
 
-Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and avrgirl-lillypad will take care of the rest. Hooray!
-
-Don't forget to plug your supported Arduino of choice into an available USB port on your computer!
-
-Wanna use this in the CLI? See [this section](#can-i-use-avrgirl-lillypad-as-a-cli-tool).
+Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and lite-avrgirl-lillypad will take care of the rest. Hooray!
 
 The following example code should get you up and running with an Arduino Uno:
 
 ```javascript
-var Avrgirl = require('avrgirl-lillypad');
+var Avrgirl = require('lite-avrgirl-lillypad');
 
-var avrgirl = new Avrgirl({
-  board: 'uno'
-});
+var avrgirl = new Avrgirl({});
 
 avrgirl.flash('Blink.cpp.hex', function (error) {
   if (error) {
@@ -64,41 +40,12 @@ avrgirl.flash('Blink.cpp.hex', function (error) {
 
 ```
 
-When creating `new Avrgirl()`, only the `board` property is required. The board names to use are detailed in the table below: 
-
-|Programmer|Board Option String|
-|:----------|:--------------|
-|Arduino Uno|`uno`|
-|Arduino Mega|`mega`|
-|Arduino ADK|`adk`|
-|Arduino Leonardo|`leonardo`|
-|Arduino Micro|`micro`|
-|Arduino Nano|`nano`|
-|Arduino Nano (with new bootloader)|`nano (new bootloader)`|
-|Arduino Lilypad USB|`lilypad-usb`|
-|Arduino Duemilanove|`duemilanove168`|
-|Arduino Yun|`yun`|
-|Arduino Esplora|`esplora`|
-|RedBearLab Blend Micro|`blend-micro`|
-|Tiny Circuits Tinyduino|`tinyduino`|
-|SparkFun Pro Micro|`sf-pro-micro`|
-|Qtechknow Qduino|`qduino`|
-|Pinoccio Scout|`pinoccio`|
-|Femtoduino IMUduino|`imuduino`|
-|Adafruit Feather 32u4 Basic Proto|`feather`|
-|Arduboy|`arduboy`|
-|Adafruit Circuit Playground|`circuit-playground-classic`|
-|BQ ZUM|`bqZum`|
-|BQ ZUM Core 2|`zumcore2`|
-|BQ ZUM Junior|`zumjunior`|
-
-You can optionally specify a port to connect to the Arduino, but if you omit this property avrgirl-lillypad will do a pretty good job of finding it for you. **The exception to this is if you're using the Arduino Pro Mini - please specify your port in this case as avrgirl-lillypad cannot auto detect it for you.**
+You can optionally specify a port to connect to the Arduino, but if you omit this property avrgirl will do a pretty good job of finding it for you.
 
 Specifying the port would look something like this:
 
 ```javascript
 var avrgirl = new Avrgirl({
-  board: 'uno',
   port: '/dev/cu.usbmodem1412'
 });
 ```
@@ -124,7 +71,7 @@ Avrgirl.list(function(err, ports) {
 Alternatively, you can use the CLI to list active ports:
 
 ```
-$ avrgirl-lillypad list
+$ lite-avrgirl-lillypad list
 [ { comName: '/dev/cu.usbmodem1421',
   	 manufacturer: 'Arduino (www.arduino.cc)',
     serialNumber: '55432333038351F03170',
@@ -139,7 +86,6 @@ $ avrgirl-lillypad list
 
 ```javascript
 var avrgirl = new Avrgirl({
-  board: 'uno',
   // turn on debug mode!
   debug: true
 });
@@ -156,7 +102,7 @@ flash complete.
 
 **Prefer your own custom debug behaviour?** No Problem!
 
-You can pass in your own debug function instead of a boolean, and avrgirl-lillypad will run that instead.
+You can pass in your own debug function instead of a boolean, and lite-avrgirl-lillypad will run that instead.
 
 Example:
 
@@ -166,73 +112,33 @@ var myCustomDebug = function(debugLogString) {
 }
 
 var avrgirl = new Avrgirl({
-  board: 'uno',
   // turn on debug with your own function
   debug: myCustomDebug
 });
 ```
 
-**Have a device that requires a manual reset?** 
-
-You can pass in a `manualReset` property as a boolean, in either your custom board object _or_ in the general Avrgirl options. This will skip the reset flow when flashing the board. Please note that this is only available for use with boards that speak the AVR109 protocol (most ATMega32U4 powered boards).
-
-
-Example without custom board:
-
-```javascript
-var avrgirl = new Avrgirl({
-  board: 'uno',
-  // you can put it here:
-  manualReset: true
-});
-```
-
-Example with custom board:
-
-```javascript
-var board = {
-  name: 'micro',
-  baud: 57600,
-  signature: new Buffer([0x43, 0x41, 0x54, 0x45, 0x52, 0x49, 0x4e]),
-  productId: ['0x0037', '0x8037', '0x0036'],
-  protocol: 'avr109',
-  // or you can put it here:
-  manualReset: true
-};
-
-
-var avrgirl = new Avrgirl({
-  board: board
-});
-```
-
-## Can I use avrgirl-lillypad as a CLI tool?
+## Can I use lite-avrgirl-lillypad as a CLI tool?
 
 ### You sure can!
 
-Run `npm install -g avrgirl-lillypad` in a shell session to install globally for easy CLI use.
+Run `npm install -g lite-avrgirl-lillypad` in a shell session to install globally for easy CLI use.
 
 The same example above would look like the following as a CLI call in your shell:
 
-`avrgirl-lillypad flash -f Blink.cpp.hex -a uno`
+`lite-avrgirl-lillypad flash -f Blink.cpp.hex`
 
 Required flags:
 
 + **-f** specify the location of the hex file to flash
-+ **-a** specify the name of the Arduino (`uno`, `mega`,`leonardo`, `micro`, `nano`, `"nano (new bootloader)"`, `pro-mini`, `duemilanove168`, `yun`, `esplora`, `blend-micro`, `tinyduino`, `sf-pro-micro`, `qduino`, `pinoccio`, `feather`, or `imuduino`)
 
 Optional flags:
 
-+ **-p** will allow you to specify the port where your Arduino is plugged in. **Remember to specify your port if using an Arduino Pro Mini.**
++ **-p** will allow you to specify the port where your Arduino is plugged in.
 + **-v** will turn on debug/verbose mode, which will print a log of things when you run the command.
-
-You can also list the supported boards:
-
-`avrgirl-lillypad boards`
 
 As well as listing all available USB devices on your computer:
 
-`avrgirl-lillypad list`
+`lite-avrgirl-lillypad list`
 
 The output will be presented in JSON format, very similar to the output of the `Serialport.list()` method (if you've used [node-serialport](https://github.com/voodootikigod/node-serialport) before).
 

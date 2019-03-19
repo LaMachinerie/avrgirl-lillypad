@@ -13,7 +13,7 @@ function spec() {
 };
 
 function jscs() {
-  return gulp.src(['tests/*.spec.js', 'tests/helpers/*.js', 'avrgirl-lillypad.js', 'lib/*.js'], { base: "./" })
+  return gulp.src(['tests/*.spec.js', 'tests/helpers/*.js', 'lite-avrgirl-lillypad.js', 'lib/*.js'], { base: "./" })
     .pipe(jscs({fix: true}))
     .pipe(gulp.dest('.'))
     .pipe(jscs.reporter())
@@ -21,7 +21,7 @@ function jscs() {
 };
 
 function lint() {
-  return gulp.src(['tests/*.spec.js', 'tests/helpers/*.js', 'avrgirl-lillypad.js', 'lib/*.js'])
+  return gulp.src(['tests/*.spec.js', 'tests/helpers/*.js', 'lite-avrgirl-lillypad.js', 'lib/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
