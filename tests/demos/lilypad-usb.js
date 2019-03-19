@@ -1,4 +1,4 @@
-var Avrgirl = require('../../lite-avrgirl-lillypad');
+var Avrgirl = require('../../lite-avrgirl-lilypad');
 var avrgirl = new Avrgirl({
   board: 'lilypad-usb',
   debug: true

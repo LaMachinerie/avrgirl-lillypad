@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.org/noopkat/lite-avrgirl-lillypad.svg?branch=master)](https://travis-ci.org/noopkat/lite-avrgirl-lillypad) [![Coverage Status](https://coveralls.io/repos/noopkat/lite-avrgirl-lillypad/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/lite-avrgirl-lillypad?branch=master)
+[![Build Status](https://travis-ci.org/noopkat/lite-avrgirl-lilypad.svg?branch=master)](https://travis-ci.org/noopkat/lite-avrgirl-lilypad) [![Coverage Status](https://coveralls.io/repos/noopkat/lite-avrgirl-lilypad/badge.svg?branch=master&service=github)](https://coveralls.io/github/noopkat/lite-avrgirl-lilypad?branch=master)
 
-# lite-avrgirl-lillypad
+# lite-avrgirl-lilypad
 
-A lighter version of avrgirl-arduino for flashing compiled sketch files to lillypad boards.
+A lighter version of avrgirl-arduino for flashing compiled sketch files to lilypad boards.
 
 ## What is this?
 
-lite-avrgirl-lillypad is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino lillypad.
+lite-avrgirl-lilypad is a NodeJS library written to present a convenient way to upload precompiled sketches to an Arduino lilypad.
 
 ## How to install
 
 1. Install NodeJS from [nodejs.org](http://nodejs.org)
-2. Run `npm install lite-avrgirl-lillypad` in your shell of choice
+2. Run `npm install lite-avrgirl-lilypad` in your shell of choice
 
 ## For Windows 7 users
 
@@ -21,12 +21,12 @@ We are working on driver compatibility issues on W7. Be patient !
 
 Your first task is to source a pre-compiled .hex file of the sketch you're interested in uploading to your Arduino. It needs to be compiled for your specific Arduino. You'll find some example hex files for each board within the `junk/hex` folder of this repo, however if you'd like to use your own, [see this guide](#sourcing-a-compiled-arduino-hex-file) if you're unsure of how to go about this.
 
-Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and lite-avrgirl-lillypad will take care of the rest. Hooray!
+Already have a .hex file in a Buffer object ready to go? No problem! Pass this Buffer object in instead of the file path string, and lite-avrgirl-lilypad will take care of the rest. Hooray!
 
 The following example code should get you up and running with an Arduino Uno:
 
 ```javascript
-var Avrgirl = require('lite-avrgirl-lillypad');
+var Avrgirl = require('lite-avrgirl-lilypad');
 
 var avrgirl = new Avrgirl({});
 
@@ -71,7 +71,7 @@ Avrgirl.list(function(err, ports) {
 Alternatively, you can use the CLI to list active ports:
 
 ```
-$ lite-avrgirl-lillypad list
+$ lite-avrgirl-lilypad list
 [ { comName: '/dev/cu.usbmodem1421',
   	 manufacturer: 'Arduino (www.arduino.cc)',
     serialNumber: '55432333038351F03170',
@@ -102,7 +102,7 @@ flash complete.
 
 **Prefer your own custom debug behaviour?** No Problem!
 
-You can pass in your own debug function instead of a boolean, and lite-avrgirl-lillypad will run that instead.
+You can pass in your own debug function instead of a boolean, and lite-avrgirl-lilypad will run that instead.
 
 Example:
 
@@ -117,15 +117,15 @@ var avrgirl = new Avrgirl({
 });
 ```
 
-## Can I use lite-avrgirl-lillypad as a CLI tool?
+## Can I use lite-avrgirl-lilypad as a CLI tool?
 
 ### You sure can!
 
-Run `npm install -g lite-avrgirl-lillypad` in a shell session to install globally for easy CLI use.
+Run `npm install -g lite-avrgirl-lilypad` in a shell session to install globally for easy CLI use.
 
 The same example above would look like the following as a CLI call in your shell:
 
-`lite-avrgirl-lillypad flash -f Blink.cpp.hex`
+`lite-avrgirl-lilypad flash -f Blink.cpp.hex`
 
 Required flags:
 
@@ -138,7 +138,7 @@ Optional flags:
 
 As well as listing all available USB devices on your computer:
 
-`lite-avrgirl-lillypad list`
+`lite-avrgirl-lilypad list`
 
 The output will be presented in JSON format, very similar to the output of the `Serialport.list()` method (if you've used [node-serialport](https://github.com/voodootikigod/node-serialport) before).
 

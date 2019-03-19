@@ -23,14 +23,14 @@ var Connection = proxyquire.noCallThru().load('../lib/connection', { serialport:
 } });
 
 // module to test
-var Avrgirl = proxyquire('../lite-avrgirl-lillypad', { Connection: Connection });
+var Avrgirl = proxyquire('../lite-avrgirl-lilypad', { Connection: Connection });
 
 // default options
 var DEF_OPTS2 = {
   board: 'uno'
 };
 
-test('[ lite-avrgirl-lillypad ] method presence', function(t) {
+test('[ lite-avrgirl-lilypad ] method presence', function(t) {
   var a = new Avrgirl(DEF_OPTS2);
   function isFn(name) {
     return typeof a[name] === 'function';
@@ -49,7 +49,7 @@ test('[ lite-avrgirl-lillypad ] method presence', function(t) {
   }
 });
 
-test('[ lite-avrgirl-lillypad ] new creation', function(t) {
+test('[ lite-avrgirl-lilypad ] new creation', function(t) {
   t.plan(3);
 
   var a = new Avrgirl(DEF_OPTS2);
@@ -58,7 +58,7 @@ test('[ lite-avrgirl-lillypad ] new creation', function(t) {
   t.ok(a.protocol.chip, 'protocol was established');
 });
 
-test('[ lite-avrgirl-lillypad ] ::_validateBoard (GOOD)', function(t) {
+test('[ lite-avrgirl-lilypad ] ::_validateBoard (GOOD)', function(t) {
   t.plan(1);
 
   var a = new Avrgirl(DEF_OPTS2);
@@ -67,7 +67,7 @@ test('[ lite-avrgirl-lillypad ] ::_validateBoard (GOOD)', function(t) {
   });
 });
 
-test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO BOARD)', function(t) {
+test('[ lite-avrgirl-lilypad ] ::_validateBoard (NO BOARD)', function(t) {
   t.plan(1);
 
   var a = new Avrgirl({ board: 'bacon' });
@@ -76,7 +76,7 @@ test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO BOARD)', function(t) {
   });
 });
 
-test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO PROTOCOL)', function(t) {
+test('[ lite-avrgirl-lilypad ] ::_validateBoard (NO PROTOCOL)', function(t) {
   t.plan(1);
 
   var a = new Avrgirl(DEF_OPTS2);
@@ -86,7 +86,7 @@ test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO PROTOCOL)', function(t) {
   });
 });
 
-test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO PORT & PRO-MINI)', function(t) {
+test('[ lite-avrgirl-lilypad ] ::_validateBoard (NO PORT & PRO-MINI)', function(t) {
   t.plan(1);
 
   var a = new Avrgirl({ board: 'pro-mini' });
@@ -95,7 +95,7 @@ test('[ lite-avrgirl-lillypad ] ::_validateBoard (NO PORT & PRO-MINI)', function
   });
 });
 
-test('[ lite-avrgirl-lillypad ] ::listPorts', function(t) {
+test('[ lite-avrgirl-lilypad ] ::listPorts', function(t) {
   t.plan(3);
   Avrgirl.listPorts(function(error, ports) {
     t.ok(ports.length, 'got a list of ports');
@@ -104,7 +104,7 @@ test('[ lite-avrgirl-lillypad ] ::listPorts', function(t) {
   });
 });
 
-test('[ lite-avrgirl-lillypad ] ::listPorts (prototype)', function(t) {
+test('[ lite-avrgirl-lilypad ] ::listPorts (prototype)', function(t) {
   t.plan(3);
   var a = new Avrgirl(DEF_OPTS2);
   a.listPorts(function(error, ports) {
@@ -114,7 +114,7 @@ test('[ lite-avrgirl-lillypad ] ::listPorts (prototype)', function(t) {
   });
 });
 
-  test('[ lite-avrgirl-lillypad ] ::flash (shallow)', function(t) {
+  test('[ lite-avrgirl-lilypad ] ::flash (shallow)', function(t) {
     t.plan(4);
     var a = new Avrgirl(DEF_OPTS2);
     var spyInit = sinon.stub(a.connection, '_init').callsFake(function(callback) {return callback(null);});
